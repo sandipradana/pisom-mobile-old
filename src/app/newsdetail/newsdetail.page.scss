@@ -1,0 +1,33 @@
+.pageTitle {
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 1.6rem;
+}
+
+.pageDate {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.pageImageContainer {
+	padding-left: 20px;
+	padding-right: 20px;
+
+	.pageImage {
+		width: 100%;
+		border-radius: 10px;
+	}
+
+}
+
+.pageBody {
+	padding-top: 10px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: justify;
+	text-justify: inter-word;
+}

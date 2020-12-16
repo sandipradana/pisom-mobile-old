@@ -1,0 +1,103 @@
+<ion-header [translucent]="true">
+	<ion-toolbar color="danger">
+		<ion-title>
+			PISOM
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">Tab 1</ion-title>
+		</ion-toolbar>
+	</ion-header>
+
+	<ion-slides pager="true" paginationtype="bullets" autoplay="2000">
+		<ion-slide *ngFor="let news of featuredNews" (click)="goToNewsDetail(news['id'])">
+			<img class="object-fit_cover" src="{{ news['thumbnail'] }}"/>
+			<div class="gradient"></div>
+			<div class="headline-title">
+				<span ion-text text-wrap color="light">{{ news['title'] }}</span>
+			</div>
+		</ion-slide>
+	</ion-slides>
+
+	<!-- <ion-title class="ion-padding">Statistik Covid19</ion-title> -->
+
+	<!--  <ion-row>
+		<ion-col size="4">
+			<ion-card color="danger">
+				<ion-card-header>
+					<ion-card-subtitle>Positif</ion-card-subtitle>
+					<ion-card-title>{{ statistics.positif }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+		<ion-col size="4">
+			<ion-card color="success">
+				<ion-card-header>
+					<ion-card-subtitle>Sembuh</ion-card-subtitle>
+					<ion-card-title>{{ statistics.sembuh }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+		<ion-col size="4">
+			<ion-card color="warning">
+				<ion-card-header>
+					<ion-card-subtitle>Meninggal</ion-card-subtitle>
+					<ion-card-title>{{ statistics.meninggal }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+	</ion-row> -->
+
+	<!-- <ion-row>
+		<ion-col size="3">
+			<ion-card color="medium">
+				<ion-card-header>
+					<ion-card-subtitle>ODP</ion-card-subtitle>
+					<ion-card-title>{{ statistics.odp }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+		<ion-col size="3">
+			<ion-card color="medium">
+				<ion-card-header>
+					<ion-card-subtitle>PDP</ion-card-subtitle>
+					<ion-card-title>{{ statistics.pdp }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+		<ion-col size="3">
+			<ion-card color="medium">
+				<ion-card-header>
+					<ion-card-subtitle>Isolasi</ion-card-subtitle>
+					<ion-card-title>{{ statistics.isolasi }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+		<ion-col size="3">
+			<ion-card color="medium">
+				<ion-card-header>
+					<ion-card-subtitle>Karantina</ion-card-subtitle>
+					<ion-card-title>{{ statistics.karantina }}</ion-card-title>
+				</ion-card-header>
+			</ion-card>
+		</ion-col>
+	</ion-row> -->
+
+	<ion-title class="ion-padding">Berita</ion-title>
+
+	<ion-list>
+		<ion-item *ngFor="let news of latestNews" class="item-terpopuler" (click)="goToNewsDetail(news['id'])">
+			<img item-start class="newsImage" src="{{ news['thumbnail'] }}"/>
+			<ion-text>
+				<div class="newsTitle">{{ news['title'] }}</div>
+				<div class="newsDate">{{ news['date'] }}</div>
+			</ion-text>
+		</ion-item>
+	</ion-list>
+
+
+</ion-content>

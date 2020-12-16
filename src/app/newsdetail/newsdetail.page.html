@@ -1,0 +1,21 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Kembali</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-text>
+		<div class="pageTitle">{{ news.title }}</div>
+		<div class="pageDate">{{ news.date }}</div>
+	</ion-text>
+	<div class="pageImageContainer">
+		<img class="pageImage" src="{{ news.thumbnail }}" />
+	</div>
+	<ion-text>
+	  <div class="pageBody ion-padding" >{{ news.content  }}</div>
+	</ion-text>
+</ion-content>

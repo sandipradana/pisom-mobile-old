@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+	<ion-toolbar color="danger">
+		<ion-title>
+			Jurnalku
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<ion-header collapse="condense">
+		<ion-toolbar>
+			<ion-title size="large">Tab 2</ion-title>
+		</ion-toolbar>
+	</ion-header>
+
+	<div *ngIf="user.id != null">
+		<ion-list>
+			<ion-item *ngFor="let journal of journals" class="item-terpopuler" (click)="goToJournalDetail(journal['id'])">
+				<ion-grid>
+					<ion-row>
+						<ion-col size="11">
+							<div>
+								<b>{{ journal['name'] }}</b>
+							</div>
+							<div>{{ journal['date'] }}</div>
+						</ion-col>
+						<ion-col size="1">
+							<ion-badge color="medium" *ngIf="journal.todo_status == 0">&nbsp;&nbsp;&nbsp;</ion-badge>
+							<ion-badge color="success" *ngIf="journal.todo_status == 1">&nbsp;&nbsp;&nbsp;</ion-badge>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item>
+		</ion-list>
+		<ion-button expand="full" color="danger" (click)="goToJournalStats()">Grafik</ion-button>
+	</div>
+	<app-explore-container code="401" message="Harap" *ngIf="user.id == null"></app-explore-container>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+</ion-content>

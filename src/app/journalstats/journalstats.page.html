@@ -1,0 +1,18 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-title>Grafik Journal</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<canvas *ngIf="showChart.wajib == 1" style="margin: 10px" #chartWajib></canvas>
+	<canvas *ngIf="showChart.makanan == 1" style="margin: 10px" #chartMakanan></canvas>
+	<canvas *ngIf="showChart.minuman == 1" style="margin: 10px" #chartMinuman></canvas>
+	<canvas *ngIf="showChart.olahraga == 1" style="margin: 10px" #chartOlahraga></canvas>
+	<canvas *ngIf="showChart.obat == 1" style="margin: 10px" #chartObat></canvas>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "name": "coronavirus-patient-diary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "01f2073f"
+}

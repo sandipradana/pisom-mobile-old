@@ -1,0 +1,147 @@
+<ion-header [translucent]="true">
+	<ion-toolbar color="danger">
+		<ion-title>
+			Profil
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+	<div *ngIf="user.id != null">
+		<ion-header collapse="condense">
+			<ion-toolbar>
+				<ion-title size="large">Profil</ion-title>
+			</ion-toolbar>
+		</ion-header>
+
+		<center>
+			<img width="150px" height="150px" style="margin-top: 10px;" src="assets/logo.png"/>
+		</center>
+
+		<ion-list>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">ID</ion-col>
+							<ion-col size="8">PISOM-{{ user.id }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Nama</ion-col>
+							<ion-col size="8">{{ user.name }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Alamat</ion-col>
+							<ion-col size="8">{{ user.address }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Jenis Kelamin</ion-col>
+							<ion-col size="8">{{ user.gender }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Tanggal Lahir</ion-col>
+							<ion-col size="8">{{ user.date_of_birth }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Umur</ion-col>
+							<ion-col size="8">{{ user.age }}
+								tahun</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+		</ion-list>
+
+		<ion-title class="ion-padding">Riwayat test</ion-title>
+
+		<ion-list>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Tanggal Test</ion-col>
+							<ion-col size="8">{{ user.test.date }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Jenis Tes</ion-col>
+							<ion-col size="8">{{ user.test.type.name }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Hasil</ion-col>
+							<ion-col size="8">{{ (user.test.result == 2 ? "Positif" : "Negatif") }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Derajat</ion-col>
+							<ion-col size="8">{{ (user.test.result == 1 ? "OTG" : "Ringan") }}</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					<ion-grid>
+						<ion-row>
+							<ion-col size="4">Isolasi</ion-col>
+							<ion-col size="8">13-12-2020 - 20-12-2020</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-label>
+			</ion-item>
+		</ion-list>
+		<ion-button (click)="logout()" class="ion-padding" expand="block" color="danger">Keluar</ion-button>
+		<div class="ion-padding-end">&nbsp;</div>
+		<div class="ion-padding-end">&nbsp;</div>
+		<div class="ion-padding-end">&nbsp;</div>
+		<div class="ion-padding-end">&nbsp;</div>
+		<div class="ion-padding-end">&nbsp;</div>
+	</div>
+	<app-explore-container code="401" message="Harap" *ngIf="user.id == null"></app-explore-container>
+</ion-content>

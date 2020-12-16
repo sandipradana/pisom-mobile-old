@@ -1,0 +1,47 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-title>{{ journals.name }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item *ngFor="let journal of journals.todos" class="item-terpopuler">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="11">
+						<div *ngIf="journal.todo_category_id == 1">
+							<div>
+								<b>{{ journal.type.name }}</b>
+							</div>
+							<div>{{ journal.type.description }}</div>
+						</div>
+						<div *ngIf="journal.todo_category_id != 1">
+							<div>
+								<b>{{ journal.category.name  }}</b>
+							</div>
+							<div *ngIf="journal.data; else typename">{{ journal.data  }}</div>
+							<ng-template #typename>
+								{{ journal.type.name  }}
+							</ng-template>
+						</div>
+					</ion-col>
+					<ion-col size="1">
+						<ion-badge color="medium" *ngIf="journal.status == 0" (click)="updateFlag(journal.id, 1)">&nbsp;&nbsp;&nbsp;</ion-badge>
+						<ion-badge color="success" *ngIf="journal.status == 1" (click)="updateFlag(journal.id, 0)">&nbsp;&nbsp;&nbsp;</ion-badge>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+	</ion-list>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="goToAddTodo()">
+		<ion-fab-button color="danger">
+			<ion-icon name="add-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+</ion-content>

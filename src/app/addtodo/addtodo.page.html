@@ -1,0 +1,57 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-title>Tambah Kegiatan</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+		<ion-row>
+			<ion-col>
+				Kategori
+			</ion-col>
+			<ion-col>
+				<ion-select [(ngModel)]="category" placeholder="Pilih Kategory Kegiatan" (ionChange)="getSubCategories()">
+					<ion-select-option *ngFor="let category of categories" (ionSelect)="setCategory(category.id)" value="{{ category.id }}">{{ category.name }}</ion-select-option>
+				</ion-select>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				&nbsp;
+			</ion-col>
+			<ion-col>
+				<ion-select [(ngModel)]="sub_category" placeholder="Pilih Kegiatan">
+					<ion-select-option *ngFor="let sub_category of sub_categories" (ionSelect)="setSubCategory(sub_category.id)" value="{{ sub_category.id }}">{{ sub_category.name }}</ion-select-option>
+				</ion-select>
+			</ion-col>
+		</ion-row>
+		<hr/>
+		<ion-row>
+			<ion-col>
+				Lainnya
+			</ion-col>
+			<ion-col>
+				<ion-toggle [(ngModel)]="sub_category_other"></ion-toggle>
+			</ion-col>
+		</ion-row>
+		<ion-row *ngIf="sub_category_other">
+			<ion-col>
+				&nbsp;
+			</ion-col>
+			<ion-col>
+				<ion-item>
+					<ion-input [(ngModel)]="sub_category_other_input"></ion-input>
+				</ion-item>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				&nbsp;
+			</ion-col>
+			<ion-col>
+				<ion-button color="danger" (click)="addTodo()">Simpan</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

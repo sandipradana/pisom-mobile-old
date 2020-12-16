@@ -1,0 +1,17 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-title>Grafik Pemerikasaan Gejala</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div *ngFor="let stat of stats" style="margin:10px" class="bar">
+		<div class="text">
+			<b>{{ stat.symptom_name }}</b>
+			<span style="float:right">{{ stat.total }} / 10</span>
+		</div>
+		<div class="barBar" style="background:grey">
+			<div style="background:blue; width:{{ stat.total/10*100 }}%">&nbsp;</div>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-toolbar color="danger">
+		<ion-title>Cek Gejala</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item *ngFor="let symptom of symptoms.symptom_check" class="item-terpopuler">
+			<ion-grid>
+				<ion-row>
+					<ion-col center size="1">
+						<ion-checkbox [(ngModel)]="symptom.status" (click)="updateFlag(symptom.id, symptom.status)"></ion-checkbox>
+					</ion-col>
+					<ion-col size="11" center>
+							<b>{{ symptom.symptom.name  }}</b>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+	</ion-list>
+  <ion-button color="danger" expand="block">Simpan</ion-button>
+</ion-content>
